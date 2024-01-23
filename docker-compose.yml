@@ -1,0 +1,35 @@
+version: '3.7'
+
+networks:
+  app_net:
+    name: 'app_net'
+    external: true
+
+volumes:
+  rango_pg:
+
+services:
+  rango-api:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    image: rango-api
+    container_name: rango-api
+    networks:
+      app_net:
+    ports:
+      - 3000:3000
+    volumes:
+      - ./:/app
+
+  rango-db:
+    image: postgres:14.1
+    container_name: rango-db
+    networks:
+      app_net:
+    ports:
+      - 7000:5432
+    volumes:
+      - rango_pg:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: postgres

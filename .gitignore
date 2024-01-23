@@ -1,0 +1,17 @@
+
+#folders
+node_modules/
+dist/
+tmp/*
+build/
+coverage
+
+#files
+.env
+*.log
+*.bkp
+.idea/
+.vscode/
+
+#exceptions
+!tmp/.gitkeep
