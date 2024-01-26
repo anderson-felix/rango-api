@@ -21,6 +21,16 @@ storeRouter.post(
 
 storeRouter.get('/list', StoreController.listStores);
 
+storeRouter.get(
+  '/show/:id',
+  celebrate({
+    [Segments.PARAMS]: {
+      id: Joi.string().uuid().required(),
+    },
+  }),
+  StoreController.showStore,
+);
+
 storeRouter.post(
   '/menu_item/register',
   celebrate({

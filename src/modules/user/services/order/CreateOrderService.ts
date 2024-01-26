@@ -5,7 +5,7 @@ import { User } from '@modules/user/infra/typeorm/entities/User';
 import { LocaleError } from '@shared/errors/LocaleError';
 import { IOrderRepository } from '@modules/order/repositories/IOrderRepository';
 import { IOrderMetatada } from '@modules/order/interfaces/IOrderMetatada';
-import { IFormattedOrder, formatOrderEntity } from '@modules/order/utils/formatStoreEntity';
+import { IFormattedOrder, formatOrderEntity } from '@modules/order/utils/formatOrderEntity';
 
 interface IRequest {
   user: User;

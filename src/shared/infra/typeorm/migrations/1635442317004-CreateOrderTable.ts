@@ -14,16 +14,18 @@ export class CreateOrderTable1635442317004 implements MigrationInterface {
             default: 'uuid_generate_v4()',
           },
           {
+            name: 'readable_id',
+            type: 'integer',
+            isGenerated: true,
+            generationStrategy: 'increment',
+          },
+          {
             name: 'store_id',
             type: 'uuid',
           },
           {
             name: 'user_id',
             type: 'uuid',
-          },
-          {
-            name: 'name',
-            type: 'varchar',
           },
           {
             name: 'status',

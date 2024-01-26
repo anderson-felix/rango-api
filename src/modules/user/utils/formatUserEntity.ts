@@ -1,4 +1,4 @@
-import { IFormattedOrder, formatOrderEntity } from '@modules/order/utils/formatStoreEntity';
+import { IFormattedOrder, formatOrderEntity } from '@modules/order/utils/formatOrderEntity';
 import { User } from '../infra/typeorm/entities/User';
 import { IAddress } from '@shared/interfaces';
 

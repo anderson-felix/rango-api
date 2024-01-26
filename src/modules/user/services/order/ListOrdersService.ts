@@ -2,7 +2,7 @@ import { Inject, Service } from 'typedi';
 
 import { User } from '@modules/user/infra/typeorm/entities/User';
 import { IOrderRepository } from '@modules/order/repositories/IOrderRepository';
-import { IFormattedOrder, formatOrderEntity } from '@modules/order/utils/formatStoreEntity';
+import { IFormattedOrder, formatOrderEntity } from '@modules/order/utils/formatOrderEntity';
 
 @Service()
 export class ListOrdersService {

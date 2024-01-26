@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 import { Container } from 'typedi';
 
-import { CreateStoreService, ListStoresService } from '@modules/store/services/store';
+import { CreateStoreService, ListStoresService, ShowStoreService } from '@modules/store/services/store';
 import { CreateStoreMenuItemService } from '@modules/store/services/storeMenuItem';
 
 export default class StoreController {
@@ -9,6 +9,14 @@ export default class StoreController {
     const service = Container.get(CreateStoreService);
 
     const response = await service.execute(req.body);
+
+    return res.json(response);
+  }
+
+  public static async showStore(req: Request, res: Response): Promise<Response> {
+    const service = Container.get(ShowStoreService);
+
+    const response = await service.execute(req.params.id);
 
     return res.json(response);
   }
