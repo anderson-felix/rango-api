@@ -9,6 +9,7 @@ import { IFormattedOrder, formatOrderEntity } from '@modules/order/utils/formatO
 
 interface IRequest {
   user: User;
+  address: string;
   items: IOrderMetatada[];
   store_id: string;
 }
@@ -23,11 +24,11 @@ export class CreateOrderService {
     private orderRepository: IOrderRepository,
   ) {}
 
-  public async execute({ user, items, store_id }: IRequest): Promise<IFormattedOrder> {
+  public async execute({ user, items, address, store_id }: IRequest): Promise<IFormattedOrder> {
     const store = await this.storeRepository.findById(store_id);
     if (!store) throw new LocaleError(`storeNotFound`);
 
-    const order = await this.orderRepository.create({ store_id, user_id: user.id, items });
+    const order = await this.orderRepository.create({ store_id, address, user_id: user.id, metadata: items });
 
     order.store = store;
     order.user = user;

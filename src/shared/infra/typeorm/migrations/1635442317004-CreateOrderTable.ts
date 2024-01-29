@@ -28,6 +28,10 @@ export class CreateOrderTable1635442317004 implements MigrationInterface {
             type: 'uuid',
           },
           {
+            name: 'address',
+            type: 'varchar',
+          },
+          {
             name: 'status',
             type: 'varchar',
             default: `'pending'`,
@@ -35,7 +39,7 @@ export class CreateOrderTable1635442317004 implements MigrationInterface {
           {
             name: 'metadata',
             type: 'json',
-            default: `'{}'`,
+            default: `'[]'`,
           },
           {
             name: 'created_at',

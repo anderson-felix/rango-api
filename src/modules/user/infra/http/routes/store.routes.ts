@@ -12,7 +12,8 @@ storeRouter.post(
   celebrate({
     [Segments.BODY]: {
       store_id: Joi.string().uuid().required(),
-      rating: Joi.number().required(),
+      rating: Joi.number(),
+      liked: Joi.boolean(),
     },
   }),
   StoreController.addRating,

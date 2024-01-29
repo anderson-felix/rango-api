@@ -3,6 +3,7 @@ import { Entity, Column, CreateDateColumn, PrimaryGeneratedColumn, UpdateDateCol
 import { Store } from '@modules/store/infra/typeorm/entities/Store';
 import { User } from '@modules/user/infra/typeorm/entities/User';
 import { IOrderMetatada } from '@modules/order/interfaces/IOrderMetatada';
+import { OrderStatusType } from '@modules/order/interfaces/OrderStatusType';
 
 @Entity('order')
 export class Order {
@@ -18,8 +19,11 @@ export class Order {
   @Column({ type: `uuid` })
   user_id: string;
 
+  @Column({ type: `text` })
+  status: OrderStatusType;
+
   @Column()
-  status: string;
+  address: string;
 
   @Column({ type: `json` })
   metadata: IOrderMetatada[];

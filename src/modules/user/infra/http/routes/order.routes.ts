@@ -12,6 +12,7 @@ orderRouter.post(
   celebrate({
     [Segments.BODY]: {
       store_id: Joi.string().uuid().required(),
+      address: Joi.string().required(),
       items: Joi.array()
         .items(
           Joi.object({

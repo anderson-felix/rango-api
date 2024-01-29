@@ -8,6 +8,7 @@ export interface IFormattedOrder {
   readable_id: number;
   store_id: string;
   user_id: string;
+  address: string;
   status: string;
   metadata: IOrderMetatada[];
   created_at: Date;
@@ -23,6 +24,7 @@ export const formatOrderEntity: FuncType = entity => ({
   readable_id: entity.readable_id,
   store_id: entity.store_id,
   user_id: entity.user_id,
+  address: entity.address,
   status: entity.status,
   metadata: entity.metadata,
   created_at: entity.created_at,

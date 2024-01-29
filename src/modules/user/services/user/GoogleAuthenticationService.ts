@@ -31,15 +31,15 @@ export class GoogleAuthenticationService {
     const googleUser = await this.googleProvider.getUser(identifier);
     if (!googleUser) throw new LocaleError('invalidLogin');
 
-    const user = await this.userRepository.findByEmail(googleUser.email);
-    if (!user) return { unregistered: true, access_token: null, user: null };
+    let user = await this.userRepository.findByEmail(googleUser.email);
+    if (!user) user = await this.userRepository.create({ name: googleUser.name, email: googleUser.email, birthdate: null, password: '', phone: '' });
 
     if (user.disabled_at) throw new LocaleError('userTemporarilyDisabled');
 
     const { secret, expiresIn } = authConfig.jwt;
 
     const access_token = sign({}, secret, { subject: user.id, expiresIn });
-
+    user.sso_data ||= {};
     user.sso_data.google = { id: googleUser.id, expires: Date.now() + 1000 * 60 * 60, token: identifier };
 
     await this.userRepository.save(user);

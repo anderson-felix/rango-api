@@ -1,4 +1,5 @@
 export interface IRating {
   user_id: string;
-  value: string;
+  value?: string;
+  liked?: boolean;
 }

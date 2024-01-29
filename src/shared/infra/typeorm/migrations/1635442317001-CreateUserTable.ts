@@ -25,10 +25,12 @@ export class CreateUserTable1635442317001 implements MigrationInterface {
           {
             name: 'password',
             type: 'varchar',
+            default: `''`,
           },
           {
             name: 'phone',
             type: 'varchar',
+            default: `''`,
           },
           {
             name: 'address',
@@ -48,6 +50,7 @@ export class CreateUserTable1635442317001 implements MigrationInterface {
           {
             name: 'birthdate',
             type: 'timestamp',
+            isNullable: true,
           },
           {
             name: 'disabled_at',
