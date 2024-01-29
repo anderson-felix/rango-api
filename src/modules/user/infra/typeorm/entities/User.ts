@@ -30,7 +30,7 @@ export class User {
   recovery_token: RecoveryToken;
 
   @Column({ type: 'timestamp' })
-  birthdate: Date;
+  birthdate: Date | null;
 
   @Column({ type: 'timestamp' })
   disabled_at: Date | null;

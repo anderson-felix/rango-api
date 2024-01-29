@@ -7,6 +7,7 @@ import { errors } from 'celebrate';
 
 import '@shared/container';
 import '@shared/infra/typeorm';
+import '@shared/infra/http/scheduler';
 import uploadConfig from '@config/upload';
 import { httpLogger, logger } from '@shared/utils';
 import routes from './routes';
